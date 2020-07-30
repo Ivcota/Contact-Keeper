@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://ivcota:abc144000@contactkeeper.zoebd.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
