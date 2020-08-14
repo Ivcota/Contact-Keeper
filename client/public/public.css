@@ -1,3 +1,18 @@
 * {
     font-family: 'Noto Sans', sans-serif;
 }
+
+.mainItem {
+    padding: .28em;
+}
+
+.card-item-main{
+    margin-bottom: .9em;
+    box-shadow: 0px 3px 15px 2px #80808057;
+    padding: .3em;
+    transition: .5s;
+}
+
+.btn-space {
+    margin-right: .2em;
+}
