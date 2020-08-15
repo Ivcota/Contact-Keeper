@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import uuid from "uuid";
+import {v4 as uuidv4} from "uuid"; 
 import ContactContext from "./contactContext";
 import contactReducer from "./contactReducer";
 import {
@@ -12,6 +12,7 @@ import {
 } from "./../types";
 
 const ContactState = (props) => {
+  // Set up the inital state for the application
   const initialState = {
     contacts: [
       {
@@ -40,32 +41,38 @@ const ContactState = (props) => {
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
-// CRUD Functions
+  // CRUD Functions
 
-// Add Contact
+  // Add Contact
+  const addContact = (contact) => {
+    // using uuid to generate an id for us... and then dispatching the rest to the reducer
+    contact.id = uuidv4();
+    dispatch({type:ADD_CONTACT, payload: contact})
+  }
 
-// Del Contact
+  // Del Contact
 
-// Set Current Contact
+  // Set Current Contact
 
-// Clear Current Contact
+  // Clear Current Contact
 
-// Update Contact
+  // Update Contact
 
-// Filter Contacts
+  // Filter Contacts
 
-// Clear Filter
+  // Clear Filter
 
+  // The while application will be inside this context provider... make sure to add the state and functions to the value object
   return (
-      <ContactContext.Provider 
+    <ContactContext.Provider
       value={{
-          contacts:state.contacts
+        contacts: state.contacts,
+        addContact
       }}
-      >
-          { props.children }
-      </ContactContext.Provider>
-  )
-
+    >
+      {props.children}
+    </ContactContext.Provider>
+  );
 };
 
 export default ContactState;
